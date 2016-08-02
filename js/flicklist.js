@@ -72,6 +72,8 @@ function render() {
       .append(title)
       // TODO 3
       // give itemView a class attribute of "item-watchlist"
+      // http://api.jquery.com/attr/
+      .attr("class", "item-watchlist");
 
     $("#section-watchlist ul").append(itemView);
   });
@@ -89,18 +91,24 @@ function render() {
       // the button should be disabled if this movie is already in
       // the user's watchlist
       // see jQuery .prop() and Array.indexOf()
+      if (model.watchlistItems.indexOf(movie) >= 0)
+        button.prop("disabled", true);
+        
+   
 
 
     // TODO 1
     // create a paragraph containing the movie object's .overview value
     // then, in the code block below,
     // append the paragraph in between the title and the button
+    var synopsis = $("<p></p>").text(movie.overview);
 
 
     // append everything to itemView, along with an <hr/>
     var itemView = $("<li></li>")
       .append($("<hr/>"))
       .append(title)
+      .append(synopsis)
       .append(button);
 
     // append the itemView to the list
