@@ -9,7 +9,8 @@ var model = {
 var api = {
 
   root: "https://api.themoviedb.org/3",
-  token: "TODO", // TODO 0 add your api key
+  token: "8662d91c4ba7fbe3cd46183982c00f21", 
+  // TODO 0 add your api key [DONE]
 
   /**
    * Given a movie object, returns the url to its poster image
@@ -78,21 +79,36 @@ function render() {
   model.watchlistItems.forEach(function(movie) {
     var title = $("<h6></h6>").text(movie.original_title);
 
-    // TODO 1 
+    // TODO 1 [DONE]
     // add an "I watched it" button and append it below the title
     // Clicking should remove this movie from the watchlist and re-render
+  
+    var watchedButton = $("<button></button>")
+      .text("I watched it")
+      .click(function() {
+        var index = model.watchlistItems.indexOf(movie);
+          model.watchlistItems.splice(index,1);
+          render();
+      });
 
     // TODO 2i
     // apply the classes "btn btn-danger" to the "I watched it button"
+    watchedButton.classname += "btn";
+    watchedButton.classname += "btn-danger";
 
     // TODO 4a
     // add a poster image and append it inside the 
-    // panel body above the button
+    // panel body above the button Inside render, use jQuery to make an 
+    // <img> element, and set its src attribute equal to the result calling 
+    // of the posterUrl function inside the api object at the top of the file. 
+    // When calling the function, don't forget to pass your movie in as an argument.
+    $("<img class='img-responsive'></img>").attr("src", "posterUrl(movie)");
 
     // TODO 2g
     // re-implement the li as a bootstrap panel with a heading and a body
     var itemView = $("<li></li>")
       .append(title)
+      .append(watchedButton)
       .attr("class", "item-watchlist");
 
     $("#section-watchlist ul").append(itemView);

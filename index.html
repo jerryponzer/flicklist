@@ -4,17 +4,19 @@
   <meta charset="utf-8"/>
 
   <!--
-  TODO 3b
+  TODO 3b [DONE]
   add meta viewport tag
   -->
+  <meta name=viewport content="width=device-width, initial-scale=1">
 
 
   <script src="https://code.jquery.com/jquery-2.2.3.js"></script>  
 
   <!--
-  TODO 2a
+  TODO 2a [DONE]
   add link to Bootstrap CDN
   -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
   <link rel="stylesheet" href="css/styles.css"/>
 
@@ -27,7 +29,7 @@
   give the header a class of "jumbotron"
   give the inner paragraph a class of "text-muted"
   -->
-  <header>
+  <header class="jumbotron text-muted">
     <h1>FlickList</h1>
     <p>Keep a list of all the movies you've been meaning to watch.</p>
   </header>
@@ -35,7 +37,7 @@
 
   <div class="main-content">
     <!--
-    TODO 3a
+    TODO 3a [DONE]
     put the rest of the content (both sections) inside a div with class "row", 
     and then add the class "container-fluid" to this div (declared above).
     Then, give each section a class of "col-?-?" (fill in the question marks).
@@ -45,8 +47,9 @@
     unless the user is on a tablet or mobile phone, in which case, each section should
     fill the entire width, with the watchlist first and the browse list below.
     -->
+    <div class="row">
 
-    <section id="section-watchlist">
+    <section id="section-watchlist" class="col-md-5">
       <header>
         <h2>My Watchlist</h2>
         <hr/>
@@ -56,10 +59,10 @@
       TODO 2f
       Give this list a class of "list-inline"
       -->
-      <ul></ul>
+      <ul class="list-inline"></ul>
     </section>
 
-    <section id="section-browse">
+    <section id="section-browse" class="col-md-7">
       <header>
         <h2>Browse Movies</h2>
 
@@ -83,9 +86,9 @@
       Use the following styles:
       "list-group", "list-group-item", "btn", "btn-primary", 
       -->
-      <ul></ul>
+      <ul class="list-group list-group-item btn btn-primary"></ul>
     </section>
-
+    </div>
   </div>
 
   <script src="js/flicklist.js"></script>
